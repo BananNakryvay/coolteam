@@ -36,7 +36,13 @@ namespace ADONetMovie_RazorPages
 
             services.AddTransient<AdonetStudioService>();
             services.AddTransient<IStudioService, StudioService>();
-          
+
+            services.AddTransient<AdonetUserService>();
+            services.AddTransient<IUserService, UserService>();
+
+            services.AddTransient<AdonetRoomService>();
+            services.AddTransient<IRoomService, RoomService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

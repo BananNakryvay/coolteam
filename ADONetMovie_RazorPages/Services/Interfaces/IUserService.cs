@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace ADONetMovie_RazorPages.Services.Interfaces
 {
-    interface IRoomService
+    public interface IUserService
     {
-        IEnumerable<Room> GetRooms(string hqcity, string name);
-        IEnumerable<Room> GetRooms();
-        void AddRoom(Room room);
-        public Room GetRoomById(int id);
+        IEnumerable<User> GetUsers();
+        public User GetUserById(int id);
+        void DeleteUser(User User);
     }
 }

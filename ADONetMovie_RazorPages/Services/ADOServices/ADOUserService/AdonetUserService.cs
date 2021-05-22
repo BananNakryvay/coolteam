@@ -22,7 +22,7 @@ namespace ADONetMovie_RazorPages.Services
         public List<User> GetUsers()
         {
             List<User> lst = new List<User>();
-            string sql = "Select * From User ";
+            string sql = "Select * From Users";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();

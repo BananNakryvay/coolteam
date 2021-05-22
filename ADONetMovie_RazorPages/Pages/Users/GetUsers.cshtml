@@ -1,0 +1,66 @@
+﻿@page
+@model ADONetMovie_RazorPages.Pages.Users.GetUsersModel
+@{ ViewData["Title"] = "GetUsers";
+}
+
+<p>
+    <a asp-page="/Movies/Create">Create New User</a>
+</p>
+<form>
+    <p>
+        Search: <input type="text" asp-for="FilterCriteria" />
+        <input type="submit" value="Filter" />
+        <a asp-page="/Movies/GetMovies">Back to Full List </a>
+    </p>
+</form>
+<h4 style="color:red"> List of actors</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Birth Year
+            </th>
+            <th>
+                Alive
+            </th>
+            <th>
+                Country
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.Users != null)
+
+            @foreach (var item in Model.Users)
+            {
+                <tr>
+                    <td>
+                        @item.UserId
+                    </td>
+                    <td>
+                        @item.UserName
+                    </td>
+                    <td>
+                        @item.Role
+                    </td>
+
+
+                    <td>
+                        <p>
+                            <a asp-page="/Movies/Rooms" asp-page-handler="MoviesByUser" asp-route-aid="@item.UserId"> User´s movies  </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p> <a asp-page="/Users/Delete" asp-route-id="@item.UserId">Delete User</a> </p>
+                    </td>
+                </tr>
+            }
+</table>
+
