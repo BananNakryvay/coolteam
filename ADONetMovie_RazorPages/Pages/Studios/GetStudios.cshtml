@@ -1,0 +1,68 @@
+﻿@page
+@model  ADONetMovie_RazorPages.Pages.Studios.GetStudiosModel
+@{
+    ViewData["Title"] = "GetStudios";
+}
+
+<h1>List of studios</h1>
+<p>
+    <a asp-page="/Studios/Create">Create New Studio</a>
+</p>
+<form>
+    <p>
+        HQCity: <input type="text" asp-for="@Model.Studio.Hqcity" />
+        Name: <input type="text" asp-for="@Model.Studio.Name" />
+        <input type="submit" value="Filter" />
+        <a asp-page="/Studios/GetStudios">Back to Full List </a>
+    </p>
+</form>
+<h4 style="color:red"> List of studios</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Hqcity
+            </th>
+
+            <th>
+                Number of employee
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model != null)
+        {
+            @foreach (var item in Model.Studios)
+            {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Hqcity
+            </td>
+            <td>
+                @item.NoOfEmployees
+            </td>
+            <td>
+                <p>
+                    <a asp-page="/Movies/GetMovies" asp-page-handler="MoviesByStudio" asp-route-sid="@item.Id"> Studio´s movies  </a>
+                </p>
+            </td>
+        </tr>
+            }
+        }
+</table>
+
+
+

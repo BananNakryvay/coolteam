@@ -1,0 +1,26 @@
+﻿@page
+@model ADONetMovie_RazorPages.Pages.Movies.StudiosActorsByMovieModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>  Movie  Title   </th>
+            <th> Actor Name   </th>
+            <th> From   </th>
+            <th>  Studio Name   </th>
+            <th>  Studio HQCity   </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>   @Model.Movie.Title    </td>
+            <td>   @Model.Actor.Name   </td>
+            <td>   @Model.Actor.Country   </td>
+            <td>  @Model.Studio.Name  </td>
+            <td>  @Model.Studio.Hqcity </td>
+
+        </tr>
+</table>
+
+
