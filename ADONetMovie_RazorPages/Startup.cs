@@ -28,15 +28,6 @@ namespace ADONetMovie_RazorPages
             services.AddRazorPages();
             
 
-            services.AddTransient<AdonetMovieService>();
-            services.AddTransient<IMovieService, MovieService>();
-
-            services.AddTransient<AdonetActorService>();
-            services.AddTransient<IActorService, ActorService>();
-
-            services.AddTransient<AdonetStudioService>();
-            services.AddTransient<IStudioService, StudioService>();
-
             services.AddTransient<AdonetUserService>();
             services.AddTransient<IUserService, UserService>();
 

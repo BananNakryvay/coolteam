@@ -24,14 +24,12 @@
                 Name
             </th>
             <th>
-                Birth Year
+                Role
             </th>
             <th>
-                Alive
+                Bookings
             </th>
-            <th>
-                Country
-            </th>
+            
         </tr>
     </thead>
     <tbody>
@@ -54,12 +52,10 @@
 
                     <td>
                         <p>
-                            <a asp-page="/Movies/Rooms" asp-page-handler="MoviesByUser" asp-route-aid="@item.UserId"> User´s movies  </a>
+                            <a asp-page="/Rooms/GetBookings" asp-page-handler="BookingsByUser" asp-route-aid="@item.UserId"> User´s Bookings  </a>
                         </p>
                     </td>
-                    <td>
-                        <p> <a asp-page="/Users/Delete" asp-route-id="@item.UserId">Delete User</a> </p>
-                    </td>
+                  
                 </tr>
             }
 </table>
