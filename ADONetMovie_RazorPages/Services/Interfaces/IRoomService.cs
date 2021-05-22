@@ -8,9 +8,8 @@ namespace ADONetMovie_RazorPages.Services.Interfaces
 {
     public interface IRoomService
     {
-        IEnumerable<Room> GetRooms(string hqcity, string name);
+       
         IEnumerable<Room> GetRooms();
-        void AddRoom(Room room);
-        public Room GetRoomById(int id);
+           
     }
 }

@@ -15,21 +15,12 @@ namespace ADONetMovie_RazorPages.Services
         {
             adonetRoomService = service;
         }
-        public void AddRoom(Room Room)
-        {
-              adonetRoomService.AddRoom(Room);
-        }
+        
         public IEnumerable<Room> GetRooms()
         {
             return adonetRoomService.GetRooms().ToList();
         }
-        public Room GetRoomById(int id)
-        {
-            return adonetRoomService.GetRoomById(id);
-        }
-        public IEnumerable<Room> GetRooms( string  hqcity, string name)
-        {
-           return adonetRoomService.GetRooms(hqcity, name);
-        }
+       
+        
     }
 }
