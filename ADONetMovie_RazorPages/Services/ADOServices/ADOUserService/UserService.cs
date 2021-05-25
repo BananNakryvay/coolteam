@@ -30,5 +30,15 @@ namespace ADONetMovie_RazorPages.Services
         {
             userService.DeleteUser(User);
         }
+
+        public void LogOut()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LogIn(User user)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

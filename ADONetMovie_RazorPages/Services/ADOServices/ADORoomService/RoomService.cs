@@ -20,7 +20,15 @@ namespace ADONetMovie_RazorPages.Services
         {
             return adonetRoomService.GetRooms().ToList();
         }
-       
-        
+
+        public void DeleteRoom(Room room)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddRoom(Room room)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -10,6 +10,7 @@ namespace ADONetMovie_RazorPages.Services.Interfaces
     {
        
         IEnumerable<Room> GetRooms();
-           
+        void DeleteRoom(Room room);
+        void AddRoom(Room room);
     }
 }

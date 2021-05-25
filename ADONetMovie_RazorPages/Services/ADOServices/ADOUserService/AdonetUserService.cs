@@ -90,24 +90,10 @@ namespace ADONetMovie_RazorPages.Services
                 }
             }
         }
-        public void AddUser(User User)
+     
+        public void DeleteUserAsTeacher(User User)
         {
-            string sql = $"Insert Into Studio(Name, HQCity, NoOfEmployees) Values (@Name,@HQCity, @NumberOfPeople)";
-            using (SqlConnection connection = new SqlConnection())
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    command.Parameters.AddWithValue("@Name", User.UserName);
-                    command.Parameters.AddWithValue("@Passwoed", User.Password);
-                    command.Parameters.AddWithValue("@Role", User.Role);
-                    int affectedRows = command.ExecuteNonQuery();
-                }
-            }
-        }
-        public void DeleteUserAsAdmin(User User)
-        {
-            string sql = $"Update User set Role = 'Admin' where Id=@aid";
+            string sql = $"Update User set Role = 'User' where Id=@aid";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();

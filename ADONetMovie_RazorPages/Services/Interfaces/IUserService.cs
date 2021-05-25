@@ -11,5 +11,7 @@ namespace ADONetMovie_RazorPages.Services.Interfaces
         IEnumerable<User> GetUsers();
         public User GetUserById(int id);
         void DeleteUser(User User);
+        void LogOut();
+        void LogIn(User user);
     }
 }
