@@ -20,7 +20,7 @@ CREATE TABLE [dbo].[BookingRoom]
 	[Id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY, 
     [RoomId] INT NOT NULL, 
     [Time] DATETIME NOT NULL, 
-    [UserID] INT NOT NULL
+    [UserId] INT NOT NULL
 )
 
 INSERT INTO [dbo].[Users] ([Id], [Name], [Role]) VALUES (1, N'Edem', N'Admin')
