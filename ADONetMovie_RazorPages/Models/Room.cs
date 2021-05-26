@@ -11,7 +11,6 @@ namespace ADONetMovie_RazorPages.Models
         public int RoomId { get; set; }
         public int Copacity { get; set; }
         public string Size { get; set; }
-        public DateTime Time { get; set; }
         public bool Status { get; set; }
     }
 }
