@@ -1,0 +1,65 @@
+﻿@page
+@model ADONetMovie_RazorPages.Pages.Rooms.GetRoomsModel
+@{
+}
+
+<p>
+    <a asp-page="/Movies/Create">Create New User</a>
+</p>
+<form>
+    <p>
+        Search: <input type="text" asp-for="FilterCriteria" />
+        <input type="submit" value="Filter" />
+        <a asp-page="/Movies/GetMovies">Back to Full List </a>
+    </p>
+</form>
+<h4 style="color:red"> List of actors</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Size
+            </th>
+            <th>
+                Copacity
+            </th>
+            <th>
+                Status
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.Rooms != null)
+
+            @foreach (var item in Model.Rooms)
+            {
+        <tr>
+            <td>
+                @item.RoomId
+            </td>
+            <td>
+                @item.Size
+            </td>
+            <td>
+                @item.Copacity
+            </td>
+            <td>
+                @item.Status
+            </td>
+
+
+            <td>
+                <p>
+                    <a asp-page="/Users/GetBookings" asp-page-handler="BookingsByRoom" asp-route-aid="@item"> Bookings  </a>
+                </p>
+            </td>
+
+        </tr>
+            }
+</table>
+

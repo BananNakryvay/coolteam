@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ADONetMovie_RazorPages.Services.Interfaces
+namespace ADONetMovie_RazorPages.Services
 {
     public interface IBookingService
     {

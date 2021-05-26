@@ -1,6 +1,6 @@
 ﻿
 using ADONetMovie_RazorPages.Models;
-using ADONetMovie_RazorPages.Services.Interfaces;
+using ADONetMovie_RazorPages.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;

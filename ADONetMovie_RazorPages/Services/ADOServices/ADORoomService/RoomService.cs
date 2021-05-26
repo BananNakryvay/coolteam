@@ -1,6 +1,6 @@
 ﻿
 using ADONetMovie_RazorPages.Models;
-using ADONetMovie_RazorPages.Services.Interfaces;
+using ADONetMovie_RazorPages.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +23,12 @@ namespace ADONetMovie_RazorPages.Services
 
         public void DeleteRoom(Room room)
         {
-            throw new NotImplementedException();
+            adonetRoomService.DeleteRoom(room);
         }
 
         public void AddRoom(Room room)
         {
-            throw new NotImplementedException();
+            adonetRoomService.AddRoom(room);
         }
     }
 }

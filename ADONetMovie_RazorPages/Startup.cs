@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ADONetMovie_RazorPages.Services;
-using ADONetMovie_RazorPages.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,7 +31,10 @@ namespace ADONetMovie_RazorPages
             services.AddTransient<IUserService, UserService>();
 
             services.AddTransient<AdonetRoomService>();
-            services.AddTransient<IRoomService, RoomService>();
+            services.AddTransient<IRoomService, RoomService>(); 
+            
+            services.AddTransient<AdonetBookingService>();
+            services.AddTransient<IBookingService, BookingService>();
 
         }
 
