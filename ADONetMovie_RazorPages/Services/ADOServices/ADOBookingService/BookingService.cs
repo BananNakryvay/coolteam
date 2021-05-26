@@ -36,7 +36,7 @@ namespace ADONetMovie_RazorPages.Services.ADOServices.ADOBookingService
         }
 
         public IEnumerable<Booking> GetBookingsByRoomId(Room room)
-        {
+    {
             throw new NotImplementedException();
         }
     }
