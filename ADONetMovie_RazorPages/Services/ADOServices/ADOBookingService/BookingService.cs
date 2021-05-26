@@ -1,12 +1,11 @@
 ﻿using ADONetMovie_RazorPages.Models;
-using ADONetMovie_RazorPages.Services.Interfaces;
+using ADONetMovie_RazorPages.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ADONetMovie_RazorPages.Services.ADOServices.ADOBookingService
-{
+namespace ADONetMovie_RazorPages.Services { 
     public class BookingService : IBookingService
     {
         private AdonetBookingService adonetBookingService { get; set; }
@@ -32,12 +31,12 @@ namespace ADONetMovie_RazorPages.Services.ADOServices.ADOBookingService
 
         public IEnumerable<Booking> GetBookingsByUserId(User user)
         {
-            throw new NotImplementedException();
+            return adonetBookingService.GetBookingsByUserId(user);
         }
 
         public IEnumerable<Booking> GetBookingsByRoomId(Room room)
-    {
-            throw new NotImplementedException();
+         {
+            return adonetBookingService.GetBookingsByRoom(room);
         }
     }
 }

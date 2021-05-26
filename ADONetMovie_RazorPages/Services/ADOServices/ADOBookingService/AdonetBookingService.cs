@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ADONetMovie_RazorPages.Services.ADOServices.ADOBookingService
+namespace ADONetMovie_RazorPages.Services
 {
     public class AdonetBookingService
     {
@@ -77,6 +77,40 @@ namespace ADONetMovie_RazorPages.Services.ADOServices.ADOBookingService
                 }
             }
         }
+
+        public IEnumerable<Booking> GetBookingsByUserId(User user)
+        {
+            List<Booking> lst = new List<Booking>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "Select * From BookingRoom UserId Where UserId =@aid";
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@aid", user.UserId);
+                using (SqlDataReader dataReader = command.ExecuteReader())
+                {
+                    ReadData(dataReader, lst);
+                }
+            }
+            return lst;
+        }
+        public IEnumerable<Booking> GetBookingsByRoom(Room room)
+        {
+            List<Booking> lst = new List<Booking>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "Select * From BookingRoom UserId Where RoomId =@aid";
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@aid", room.RoomId);
+                using (SqlDataReader dataReader = command.ExecuteReader())
+                {
+                    ReadData(dataReader, lst);
+                }
+            }
+            return lst;
+        }
+
 
     }
 }

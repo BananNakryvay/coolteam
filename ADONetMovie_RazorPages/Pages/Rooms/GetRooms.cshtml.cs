@@ -7,17 +7,16 @@ using ADONetMovie_RazorPages.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ADONetMovie_RazorPages.Pages.Users
+namespace ADONetMovie_RazorPages.Pages.Rooms
 {
-    public class GetUsersModel : PageModel
+    public class GetRoomsModel : PageModel
     {
-
         [BindProperty(SupportsGet = true)]
         public string FilterCriteria { get; set; }
-        public IEnumerable<User> Users { get; set; }
+        public IEnumerable<Room> Rooms { get; set; }
 
-        IUserService actorService { get; set; }
-        public GetUsersModel(IUserService service)
+        IRoomService actorService { get; set; }
+        public GetRoomsModel(IRoomService service)
         {
             actorService = service;
         }
@@ -28,8 +27,7 @@ namespace ADONetMovie_RazorPages.Pages.Users
             //    Movies = movieService.GetMovies(FilterCriteria);
             //}
             //else
-            Users = actorService.GetUsers();
+            Rooms = actorService.GetRooms();
         }
-
     }
 }

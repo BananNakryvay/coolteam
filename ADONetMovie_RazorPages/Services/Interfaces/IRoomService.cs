@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ADONetMovie_RazorPages.Services.Interfaces
+namespace ADONetMovie_RazorPages.Services
 {
     public interface IRoomService
     {
