@@ -23,5 +23,5 @@ CREATE TABLE [dbo].[BookingRoom]
     [UserId] INT NOT NULL
 )
 
-INSERT INTO [dbo].[Users] ([Id], [Name], [Role]) VALUES (1, N'Edem', N'Admin')
+INSERT INTO [dbo].[Users] ( [Name], [Role]) VALUES ( N'Edem', N'Admin')
 
