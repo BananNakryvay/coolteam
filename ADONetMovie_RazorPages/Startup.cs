@@ -25,15 +25,7 @@ namespace ADONetMovie_RazorPages
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-
-            services.AddDistributedMemoryCache();
-
-            services.AddSession(options =>
-            {
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
-                options.Cookie.HttpOnly = true;
-                options.Cookie.IsEssential = true;
-            });
+            
 
             services.AddTransient<AdonetUserService>();
             services.AddTransient<IUserService, UserService>();
@@ -64,8 +56,6 @@ namespace ADONetMovie_RazorPages
             app.UseStaticFiles();
 
             app.UseRouting();
-
-            app.UseSession();
 
             app.UseAuthorization();
 

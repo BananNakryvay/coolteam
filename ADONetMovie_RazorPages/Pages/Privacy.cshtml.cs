@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ADONetMovie_RazorPages.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -21,7 +22,6 @@ namespace EFCoreMovie_RazorPages.Pages
 
         public void OnGet()
         {
-            TempData["UserId"] = 2;
         }
     }
 }
