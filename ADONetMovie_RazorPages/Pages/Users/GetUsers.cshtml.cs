@@ -23,11 +23,6 @@ namespace ADONetMovie_RazorPages.Pages.Users
         }
         public void OnGet()
         {
-            //if (!String.IsNullOrEmpty(FilterCriteria))
-            //{
-            //    Movies = movieService.GetMovies(FilterCriteria);
-            //}
-            //else
             Users = actorService.GetUsers();
         }
 
