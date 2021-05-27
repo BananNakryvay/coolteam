@@ -3,12 +3,11 @@
 @{
 }
 
-<h4 style="color:red"> Make a Booking</h4>
 <form>
     <p>
         PIck Day and Time:
         <input type="text" asp-for="FilterCriteria" value="@DateTime.Now" readonly class="form_datetime">
-        <input type="submit" value="Search"/>
+        <input type="submit" value="Search" />
     </p>
 </form>
 <form method="post">
@@ -31,7 +30,6 @@
         <tbody>
 
             @if (Model.Rooms != null)
-
                 @foreach (var item in Model.Rooms)
                 {
                     <tr>
@@ -45,6 +43,7 @@
                             @item.Copacity
                         </td>
                         <td>
+                            <input type="hidden" asp-for="FilterCriteria" value="@Model.FilterCriteria" />
                             <input type="hidden" name="BookingId" asp-for="@item.RoomId" />
                             <button class="btn btn-info" asp-page-handler="CreateBooking">Booked </button>
                         </td>
@@ -52,3 +51,4 @@
                 }
     </table>
 </form>
+<h4 class="text-center text-danger font-weight-bold"> @Model.Messege</h4>

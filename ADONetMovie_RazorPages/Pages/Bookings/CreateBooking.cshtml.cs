@@ -15,7 +15,7 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
         [BindProperty(SupportsGet = true)]
         public string FilterCriteria { get; set; }
         public IEnumerable<Room> Rooms { get; set; }
-        string Messege { get; set; }
+        public string Messege { get; set; }
 
         IRoomService roomService { get; set; }
         IBookingService bookingService { get; set; }
@@ -48,7 +48,7 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
         {
             User user = new User() { UserId = 1 };
             bookingService.AddBooking(id, user, DateTime.Parse(FilterCriteria));
-            return RedirectToPage();
+            return RedirectToPage("GetBookings");
         }
     }
 }
