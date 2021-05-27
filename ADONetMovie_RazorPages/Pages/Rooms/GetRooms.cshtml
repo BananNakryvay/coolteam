@@ -46,14 +46,14 @@
                         @if (item.Status)
                         {
                             <p>
-                                <a asp-page="/Bookings/GetBookings" asp-page-handler="BookingsByRoom" asp-route-aid="@item"> Occupied for Now  </a>
+                                <a asp-page="/Bookings/GetBookings" asp-page-handler="BookingsByRoom" asp-route-id="@item.RoomId"> Occupied for Now  </a>
                             </p>
 
                         }
                         else
                         {
                             <p>
-                                <a asp-page="/Bookings/GetBookings" asp-page-handler="BookingsByRoom" asp-route-aid="@item"> Empty  </a>
+                                <a asp-page="/Bookings/GetBookings" asp-page-handler="BookingsByRoom" asp-route-id="@item.RoomId"> Empty  </a>
                             </p>
                         }
 

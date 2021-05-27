@@ -45,7 +45,7 @@
                         <td>
                             @item.BookingId
                         </td>
-                        <td><input type="hidden" name="BookingId" asp-for="@item.BookingId" /></td>
+                        <input type="hidden" name="BookingId" asp-for="@item.BookingId" />
                         <td>
                             @item.RoomId
                         </td>
@@ -53,7 +53,7 @@
                             @item.UserId
                         </td>
                         <td>
-                            @item.Time
+                            @item.Time.ToString("dd/MMMM/yyyy HH:mm")
                         </td>
                         <td>
                             <button class="btn btn-danger" asp-page-handler="cancelBooking">Cancel </button>

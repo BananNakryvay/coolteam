@@ -30,7 +30,7 @@ namespace ADONetMovie_RazorPages.Pages.Rooms
             //}
             //else
             Rooms = roomService.GetRooms();
-            Rooms.Where(w => bookingService.GetBookingsByRoomId(w).Where(t => GetH(t.Time)).Count() > 0).ToList().ForEach(s => s.Status = true);
+            Rooms.Where(w => bookingService.GetBookingsByRoomId(w.RoomId).Where(t => GetH(t.Time)).Count() > 0).ToList().ForEach(s => s.Status = true);
         }
         public bool GetH(DateTime dateTime)
         {

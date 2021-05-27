@@ -21,13 +21,13 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
             bookingService = service;
         }
 
-        public void OnGetBookingsByUser(User user)
+        public void OnGetBookingsByUser(int id)
         {
-            Bookings = bookingService.GetBookingsByUserId(user);
+            Bookings = bookingService.GetBookingsByUserId(id);
         }
-        public void GetBookingsByRoom(Room room)
+        public void OnGetBookingsByRoom(int id)
         {
-            Bookings = bookingService.GetBookingsByRoomId(room);
+            Bookings = bookingService.GetBookingsByRoomId(id);
         }
         public void OnGet()
         {

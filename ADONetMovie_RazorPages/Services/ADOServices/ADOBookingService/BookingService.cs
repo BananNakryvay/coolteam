@@ -29,14 +29,14 @@ namespace ADONetMovie_RazorPages.Services {
             return adonetBookingService.GetBookings().ToList();
         }
 
-        public IEnumerable<Booking> GetBookingsByUserId(User user)
+        public IEnumerable<Booking> GetBookingsByUserId(int id)
         {
-            return adonetBookingService.GetBookingsByUserId(user);
+            return adonetBookingService.GetBookingsByUserId(id);
         }
 
-        public IEnumerable<Booking> GetBookingsByRoomId(Room room)
+        public IEnumerable<Booking> GetBookingsByRoomId(int id)
          {
-            return adonetBookingService.GetBookingsByRoom(room);
+            return adonetBookingService.GetBookingsByRoom(id);
         }
     }
 }

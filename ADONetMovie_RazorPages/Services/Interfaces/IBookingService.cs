@@ -9,8 +9,8 @@ namespace ADONetMovie_RazorPages.Services
         IEnumerable<Booking> GetBookings();
         void DeleteBooking(Booking booking);
         void AddBooking(Room room, User user, DateTime dateTime);
-        IEnumerable<Booking> GetBookingsByUserId(User user);
-        IEnumerable<Booking> GetBookingsByRoomId(Room room);
+        IEnumerable<Booking> GetBookingsByUserId(int id);
+        IEnumerable<Booking> GetBookingsByRoomId(int id);
 
 
     }

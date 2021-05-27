@@ -78,7 +78,7 @@ namespace ADONetMovie_RazorPages.Services
             }
         }
 
-        public IEnumerable<Booking> GetBookingsByUserId(User user)
+        public IEnumerable<Booking> GetBookingsByUserId(int id)
         {
             List<Booking> lst = new List<Booking>();
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -86,7 +86,7 @@ namespace ADONetMovie_RazorPages.Services
                 connection.Open();
                 string sql = "Select * From BookingRoom  Where UserId =@aid";
                 SqlCommand command = new SqlCommand(sql, connection);
-                command.Parameters.AddWithValue("@aid", user.UserId);
+                command.Parameters.AddWithValue("@aid", id);
                 using (SqlDataReader dataReader = command.ExecuteReader())
                 {
                     ReadData(dataReader, lst);
@@ -94,7 +94,7 @@ namespace ADONetMovie_RazorPages.Services
             }
             return lst;
         }
-        public IEnumerable<Booking> GetBookingsByRoom(Room room)
+        public IEnumerable<Booking> GetBookingsByRoom(int id)
         {
             List<Booking> lst = new List<Booking>();
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -102,7 +102,7 @@ namespace ADONetMovie_RazorPages.Services
                 connection.Open();
                 string sql = "Select * From BookingRoom Where RoomId =@aid";
                 SqlCommand command = new SqlCommand(sql, connection);
-                command.Parameters.AddWithValue("@aid", room.RoomId);
+                command.Parameters.AddWithValue("@aid", id);
                 using (SqlDataReader dataReader = command.ExecuteReader())
                 {
                     ReadData(dataReader, lst);
