@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ADONetMovie_RazorPages.Models;
+﻿using ADONetMovie_RazorPages.Models;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
@@ -22,6 +17,7 @@ namespace EFCoreMovie_RazorPages.Pages
 
         public void OnGet()
         {
+            SessionH.Set(HttpContext.Session, "user", new User() { UserId = 5});
         }
     }
 }

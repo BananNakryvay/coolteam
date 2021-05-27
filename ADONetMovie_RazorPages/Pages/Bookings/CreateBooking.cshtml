@@ -46,7 +46,6 @@
                             <form method="post">
                                 <input type="hidden" asp-for="FilterCriteria" value="@Model.FilterCriteria" />
                                 <input type="hidden" name="RoomId" asp-for="@item.RoomId" />
-                                <input type="hidden" name="UserId" asp-for="@TempData["UserId"]" />
                                 <button class="btn btn-info" asp-page-handler="CreateBooking">Booked </button>
                             </form>
                         </td>

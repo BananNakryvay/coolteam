@@ -13,6 +13,6 @@ namespace ADONetMovie_RazorPages.Services
         void AddUser(User User);
         void DeleteUser(User User);
         void LogOut();
-        void LogIn(User user);
+        User LogIn(User user);
     }
 }

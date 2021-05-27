@@ -25,7 +25,11 @@ namespace ADONetMovie_RazorPages
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            
+
+
+            //session
+            services.AddDistributedMemoryCache();
+            services.AddSession();
 
             services.AddTransient<AdonetUserService>();
             services.AddTransient<IUserService, UserService>();
@@ -58,6 +62,8 @@ namespace ADONetMovie_RazorPages
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

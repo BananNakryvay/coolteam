@@ -44,9 +44,10 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
             double h = DateTime.Parse(FilterCriteria).Subtract(dateTime).TotalHours;
             return ((h < 2) && (h >= 0));
         }
-        public async Task<IActionResult> OnPostCreateBookingAsync(Room id, User user)
+        public async Task<IActionResult> OnPostCreateBookingAsync(Room id )
         {
-            bookingService.AddBooking(id, user, DateTime.Parse(FilterCriteria));
+            User user = HttpContext.Session.Get<User>("user");
+            bookingService.AddBooking(id, user , DateTime.Parse(FilterCriteria));
             return RedirectToPage("GetBookings");
         }
     }
