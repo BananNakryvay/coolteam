@@ -14,52 +14,51 @@
     </p>
 </form>
 <h4 style="color:red"> List of actors</h4>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Id
-            </th>
-            <th>
-                Room ID
-            </th>
-            <th>
-                User ID
-            </th>
-            <th>
-                Time
-            </th>
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Room ID
+                </th>
+                <th>
+                    User ID
+                </th>
+                <th>
+                    Time
+                </th>
 
-        </tr>
-    </thead>
-    <tbody>
+            </tr>
+        </thead>
 
-        @if (Model.Bookings != null)
+        <tbody>
 
-            @foreach (var item in Model.Bookings)
-            {
-        <tr>
-            <td>
-                @item.BookingId
-            </td>
-            <td>
-                @item.RoomId
-            </td>
-            <td>
-                @item.UserId
-            </td>
-            <td>
-                @item.Time
-            </td>
+            @if (Model.Bookings != null)
 
+                @foreach (var item in Model.Bookings)
+                {
 
-            <td>
-                <p>
-                    <a asp-page="/Users/GetBookings" asp-page-handler="BookingsByRoom" asp-route-aid="@item"> Bookings  </a>
-                </p>
-            </td>
-
-        </tr>
-            }
-</table>
+                    <tr>
+                        <td>
+                            @item.BookingId
+                        </td>
+                        <td>
+                            @item.RoomId
+                        </td>
+                        <td>
+                            @item.UserId
+                        </td>
+                        <td>
+                            @item.Time
+                        </td>
+                        <td>
+                            <button class="btn btn-default" asp-page-handler="cancelBooking" asp-route-id="@item">Cancel </button>
+                        </td>
+                    </tr>
+                }
+    </table>
+</form>
 

@@ -63,6 +63,22 @@ namespace ADONetMovie_RazorPages.Services
             }
             return lst;
         }
+        public void AddUser(User user)
+        {
+            string sql = $"Insert Into Users (Name, Role, Password) Values ( @Name, @Role, @Password)";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", user.UserName);
+                    command.Parameters.AddWithValue("@Role", user.Role);
+                    command.Parameters.AddWithValue("@Password", user.Password);
+                    int affectedRows = command.ExecuteNonQuery();
+                }
+            }
+        }
 
         public void AddUserAsAdmin(User User)
         {

@@ -15,19 +15,19 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
         public string FilterCriteria { get; set; }
         public IEnumerable<Booking> Bookings { get; set; }
 
-        IBookingService actorService { get; set; }
+        IBookingService bookingService { get; set; }
         public GetBookingsModel(IBookingService service)
         {
-            actorService = service;
+            bookingService = service;
         }
 
         public void OnGetBookingsByUser(User user)
         {
-            Bookings = actorService.GetBookingsByUserId(user);
+            Bookings = bookingService.GetBookingsByUserId(user);
         }
         public void GetBookingsByRoom(Room room)
         {
-            Bookings = actorService.GetBookingsByRoomId(room);
+            Bookings = bookingService.GetBookingsByRoomId(room);
         }
         public void OnGet()
         {
@@ -36,7 +36,12 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
             //    Movies = movieService.GetMovies(FilterCriteria);
             //}
             //else
-            Bookings = actorService.GetBookings();
+            Bookings = bookingService.GetBookings();
+        }
+        public async Task<IActionResult> OnPostCancelBookingAsync(Booking id)
+        {
+            bookingService.DeleteBooking(id);
+            return RedirectToPage();
         }
     }
 }
