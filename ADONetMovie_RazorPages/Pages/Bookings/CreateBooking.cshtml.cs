@@ -15,6 +15,7 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
         [BindProperty(SupportsGet = true)]
         public string FilterCriteria { get; set; }
         public IEnumerable<Room> Rooms { get; set; }
+        string Messege { get; set; }
 
         IRoomService roomService { get; set; }
         IBookingService bookingService { get; set; }
@@ -25,12 +26,16 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
         }
         public void OnGet()
         {
-            Rooms = roomService.GetRooms();
+
             if (!String.IsNullOrEmpty(FilterCriteria))
             {
-
+                Rooms = roomService.GetRooms();
                 Rooms.Where(w => bookingService.GetBookingsByRoomId(w.RoomId).Where(t => GetH(t.Time)).Count() > 0).ToList().ForEach(s => s.Status = true);
                 Rooms = Rooms.Where(e => e.Status == false);
+            }
+            else
+            {
+                Messege = "Select Day and Time";
             }
                 
         }
@@ -38,6 +43,12 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
         {
             double h = DateTime.Parse(FilterCriteria).Subtract(dateTime).TotalHours;
             return ((h < 2) && (h >= 0));
+        }
+        public async Task<IActionResult> OnPostCreateBookingAsync(Room id)
+        {
+            User user = new User() { UserId = 1 };
+            bookingService.AddBooking(id, user, DateTime.Parse(FilterCriteria));
+            return RedirectToPage();
         }
     }
 }
