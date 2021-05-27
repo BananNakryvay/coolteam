@@ -1,12 +1,15 @@
 ﻿GO
 
-
+DROP TABLE [dbo].[Users]
 CREATE TABLE [dbo].[Users] (
-    [Id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-    [Name] VARCHAR (50) NULL,
-    [Role] VARCHAR (50) NULL,
+   [Id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY, 
+    [Name] VARCHAR (50) NOT NULL,
+    [Role] VARCHAR (50) NOT NULL,
+	[Password] VARCHAR (50) NOT NULL
 );
+
 GO
+DROP TABLE [dbo].[Room]
 CREATE TABLE [dbo].[Room]
 (
 	[Id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY, 
@@ -15,6 +18,7 @@ CREATE TABLE [dbo].[Room]
     [Status] BIT NOT NULL
 )
 GO
+DROP TABLE [dbo].[BookingRoom]
 CREATE TABLE [dbo].[BookingRoom]
 (
 	[Id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY, 
@@ -23,5 +27,5 @@ CREATE TABLE [dbo].[BookingRoom]
     [UserId] INT NOT NULL
 )
 GO
-INSERT INTO [dbo].[Users] ( [Name], [Role]) VALUES ( N'Edem', N'Admin')
+INSERT INTO [dbo].[Users] ( [Name], [Role], [Password]) VALUES ( N'Edem', N'Admin', 'kek')
 

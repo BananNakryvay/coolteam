@@ -40,5 +40,10 @@ namespace ADONetMovie_RazorPages.Services
         {
             throw new NotImplementedException();
         }
+
+        public void AddUser(User User)
+        {
+            userService.AddUser(User);
+        }
     }
 }

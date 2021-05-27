@@ -15,10 +15,10 @@ namespace ADONetMovie_RazorPages.Pages.Rooms
         public string FilterCriteria { get; set; }
         public IEnumerable<Room> Rooms { get; set; }
 
-        IRoomService actorService { get; set; }
+        IRoomService roomService { get; set; }
         public GetRoomsModel(IRoomService service)
         {
-            actorService = service;
+            roomService = service;
         }
         public void OnGet()
         {
@@ -27,7 +27,7 @@ namespace ADONetMovie_RazorPages.Pages.Rooms
             //    Movies = movieService.GetMovies(FilterCriteria);
             //}
             //else
-            Rooms = actorService.GetRooms();
+            Rooms = roomService.GetRooms();
         }
     }
 }

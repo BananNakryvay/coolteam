@@ -10,6 +10,7 @@ namespace ADONetMovie_RazorPages.Services
     {
         IEnumerable<User> GetUsers();
         public User GetUserById(int id);
+        void AddUser(User User);
         void DeleteUser(User User);
         void LogOut();
         void LogIn(User user);
