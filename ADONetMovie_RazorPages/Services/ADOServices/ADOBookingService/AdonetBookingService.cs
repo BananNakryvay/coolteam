@@ -84,7 +84,7 @@ namespace ADONetMovie_RazorPages.Services
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string sql = "Select * From BookingRoom UserId Where UserId =@aid";
+                string sql = "Select * From BookingRoom  Where UserId =@aid";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@aid", user.UserId);
                 using (SqlDataReader dataReader = command.ExecuteReader())
@@ -100,7 +100,7 @@ namespace ADONetMovie_RazorPages.Services
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string sql = "Select * From BookingRoom UserId Where RoomId =@aid";
+                string sql = "Select * From BookingRoom Where RoomId =@aid";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@aid", room.RoomId);
                 using (SqlDataReader dataReader = command.ExecuteReader())

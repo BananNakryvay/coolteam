@@ -6,15 +6,9 @@
 <p>
     <a asp-page="/Users/AddUser">Create New User</a>
 </p>
-<form>
-    <p>
-        Search: <input type="text" asp-for="FilterCriteria" />
-        <input type="submit" value="Filter" />
-        <a asp-page="/Movies/GetMovies">Back to Full List </a>
-    </p>
-</form>
+
 <h4 style="color:red"> List of actors</h4>
-<table class="table">
+<table id="stable" class="table table-striped table-bordered table-sm">
     <thead>
         <tr>
             <th>

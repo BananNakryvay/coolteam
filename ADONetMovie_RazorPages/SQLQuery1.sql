@@ -14,8 +14,7 @@ CREATE TABLE [dbo].[Room]
 (
 	[Id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY, 
     [Capacity] INT NOT NULL, 
-    [ Size] VARCHAR(50) NOT NULL, 
-    [Status] BIT NOT NULL
+    [Size] VARCHAR(50) NOT NULL
 )
 GO
 DROP TABLE [dbo].[BookingRoom]

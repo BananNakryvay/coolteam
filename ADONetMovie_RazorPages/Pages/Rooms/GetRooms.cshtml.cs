@@ -16,9 +16,11 @@ namespace ADONetMovie_RazorPages.Pages.Rooms
         public IEnumerable<Room> Rooms { get; set; }
 
         IRoomService roomService { get; set; }
-        public GetRoomsModel(IRoomService service)
+        IBookingService bookingService { get; set; }
+        public GetRoomsModel(IRoomService service, IBookingService bservice)
         {
             roomService = service;
+            bookingService = bservice;
         }
         public void OnGet()
         {
@@ -28,6 +30,12 @@ namespace ADONetMovie_RazorPages.Pages.Rooms
             //}
             //else
             Rooms = roomService.GetRooms();
+            Rooms.Where(w => bookingService.GetBookingsByRoomId(w).Where(t => GetH(t.Time)).Count() > 0).ToList().ForEach(s => s.Status = true);
+        }
+        public bool GetH(DateTime dateTime)
+        {
+            double h = DateTime.Now.Subtract(dateTime).TotalHours;
+            return ((h<2)&&(h>=0));
         }
     }
 }

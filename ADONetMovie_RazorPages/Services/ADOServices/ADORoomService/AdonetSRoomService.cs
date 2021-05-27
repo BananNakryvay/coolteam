@@ -40,14 +40,13 @@ namespace ADONetMovie_RazorPages.Services
                 Room Room = new Room();
                 Room.RoomId = Convert.ToInt32(dataReader["Id"]);
                 Room.Size = Convert.ToString(dataReader["Size"]);
-                Room.Status = Convert.ToBoolean(dataReader["Status"]);
-                Room.Copacity = Convert.ToInt32(dataReader["Copacity"]);
+                Room.Copacity = Convert.ToInt32(dataReader["Capacity"]);
                 sList.Add(Room);
             }
         }
         public void AddRoom(Room room)
         {
-            string sql = $"Insert Into Room ( Capacity, Size, Status) Values (  @Capacity, @Size, @Status)";
+            string sql = $"Insert Into Room ( Capacity, Size) Values (  @Capacity, @Size)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -56,7 +55,6 @@ namespace ADONetMovie_RazorPages.Services
                 {
                     command.Parameters.AddWithValue("@Capacity", room.Copacity);
                     command.Parameters.AddWithValue("@Size", room.Size);
-                    command.Parameters.AddWithValue("@Status", room.Status);
                     int affectedRows = command.ExecuteNonQuery();
                 }
             }
