@@ -133,6 +133,28 @@ namespace ADONetMovie_RazorPages.Services
                 }
             }
         }
+
+        public void LogIn(User user)
+        {
+            string sql = "Select * From Users";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sql, connection);
+                using (SqlDataReader dataReader = command.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        User User = new User();
+                        User.UserId = Convert.ToInt32(dataReader["Id"]);
+                        User.Role = Convert.ToString(dataReader["Role"]);
+                    }
+                }
+            }
+        }
+
+
+
     }
 }
 

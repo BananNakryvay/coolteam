@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -17,8 +18,10 @@ namespace EFCoreMovie_RazorPages.Pages
             _logger = logger;
         }
 
+
         public void OnGet()
         {
+            TempData["UserId"] = 2;
         }
     }
 }
