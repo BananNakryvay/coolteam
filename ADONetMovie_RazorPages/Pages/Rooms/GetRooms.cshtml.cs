@@ -24,11 +24,6 @@ namespace ADONetMovie_RazorPages.Pages.Rooms
         }
         public void OnGet()
         {
-            //if (!String.IsNullOrEmpty(FilterCriteria))
-            //{
-            //    Movies = movieService.GetMovies(FilterCriteria);
-            //}
-            //else
             Rooms = roomService.GetRooms();
             Rooms.Where(w => bookingService.GetBookingsByRoomId(w.RoomId).Where(t => GetH(t.Time)).Count() > 0).ToList().ForEach(s => s.Status = true);
         }

@@ -7,7 +7,7 @@
     <a asp-page="/Rooms/AddRoom">Create New Room</a>
 </p>
 
-<h4 style="color:red"> List of actors</h4>
+<h4 style="color:red"> List of Rooms</h4>
 <table id="stable" class="table table-striped table-bordered table-sm">
     <thead>
         <tr>
@@ -40,7 +40,7 @@
                         @item.Size
                     </td>
                     <td>
-                        @item.Copacity
+                        @item.Capacity
                     </td>
                     <td>
                         @if (item.Status)
@@ -53,15 +53,11 @@
                         else
                         {
                             <p>
-                                <a asp-page="/Bookings/GetBookings" asp-page-handler="BookingsByRoom" asp-route-id="@item.RoomId"> Empty  </a>
+                                <a asp-page="/Bookings/GetBookings" asp-page-handler="BookingsByRoom" asp-route-id="@item.RoomId"> Empty </a>
                             </p>
                         }
 
                     </td>
-
-
-
-
                 </tr>
             }
 </table>

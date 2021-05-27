@@ -4,16 +4,16 @@
 }
 
 <p>
-    <a asp-page="/Bookings/CreateBooking">Create New User</a>
+    <a asp-page="/Bookings/CreateBooking">Create New Booking</a>
 </p>
 <form>
     <p>
         Search: <input type="text" asp-for="FilterCriteria" />
         <input type="submit" value="Filter" />
-        <a asp-page="/Movies/GetMovies">Back to Full List </a>
+        <a asp-page="/Bookings/GetBookings">Back to Full List</a>
     </p>
 </form>
-<h4 style="color:red"> List of actors</h4>
+<h4 style="color:red">List of Bookings</h4>
 <form method="post">
     <table id="stable" class="table table-striped table-bordered table-sm">
         <thead>
@@ -56,7 +56,7 @@
                             @item.Time.ToString("dd/MMMM/yyyy HH:mm")
                         </td>
                         <td>
-                            <button class="btn btn-danger" asp-page-handler="cancelBooking">Cancel </button>
+                            <button class="btn btn-danger" asp-page-handler="cancelBooking">Cancel</button>
                         </td>
                     </tr>
                 }

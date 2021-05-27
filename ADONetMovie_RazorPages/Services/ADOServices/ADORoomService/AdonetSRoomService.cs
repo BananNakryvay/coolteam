@@ -15,7 +15,7 @@ namespace ADONetMovie_RazorPages.Services
         public AdonetRoomService(IConfiguration config)
         {
             configuration = config;
-            connectionString = configuration.GetConnectionString("CinemaContext");
+            connectionString = configuration.GetConnectionString("BookingContext");
         }
         public IEnumerable<Room> GetRooms()
         {
@@ -40,7 +40,7 @@ namespace ADONetMovie_RazorPages.Services
                 Room Room = new Room();
                 Room.RoomId = Convert.ToInt32(dataReader["Id"]);
                 Room.Size = Convert.ToString(dataReader["Size"]);
-                Room.Copacity = Convert.ToInt32(dataReader["Capacity"]);
+                Room.Capacity = Convert.ToInt32(dataReader["Capacity"]);
                 sList.Add(Room);
             }
         }
@@ -53,7 +53,7 @@ namespace ADONetMovie_RazorPages.Services
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
-                    command.Parameters.AddWithValue("@Capacity", room.Copacity);
+                    command.Parameters.AddWithValue("@Capacity", room.Capacity);
                     command.Parameters.AddWithValue("@Size", room.Size);
                     int affectedRows = command.ExecuteNonQuery();
                 }

@@ -9,7 +9,7 @@ namespace ADONetMovie_RazorPages.Models
     {
 
         public int RoomId { get; set; }
-        public int Copacity { get; set; }
+        public int Capacity { get; set; }
         public string Size { get; set; }
         public bool Status { get; set; }
     }
