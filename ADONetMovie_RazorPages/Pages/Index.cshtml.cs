@@ -18,9 +18,10 @@ namespace EFCoreMovie_RazorPages.Pages
             _logger = logger;
         }
 
+        public string Messenge { get; private set; }
+
         public void OnGet()
         {
-
         }
     }
 }

@@ -26,14 +26,10 @@ namespace ADONetMovie_RazorPages
         {
             services.AddRazorPages();
 
-            services.AddDistributedMemoryCache();
 
-            services.AddSession(options =>
-            {
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
-                options.Cookie.HttpOnly = true;
-                options.Cookie.IsEssential = true;
-            });
+            //session
+            services.AddDistributedMemoryCache();
+            services.AddSession();
 
             services.AddTransient<AdonetUserService>();
             services.AddTransient<IUserService, UserService>();
@@ -65,9 +61,9 @@ namespace ADONetMovie_RazorPages
 
             app.UseRouting();
 
-            app.UseSession();
-
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
