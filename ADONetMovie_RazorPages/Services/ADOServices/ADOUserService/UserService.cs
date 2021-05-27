@@ -36,9 +36,9 @@ namespace ADONetMovie_RazorPages.Services
             throw new NotImplementedException();
         }
 
-        public void LogIn(User user)
+        public User LogIn(User user)
         {
-            throw new NotImplementedException();
+            return userService.LogIn(user);
         }
 
         public void AddUser(User User)

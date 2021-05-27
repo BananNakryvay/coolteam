@@ -1,11 +1,9 @@
 ﻿using ADONetMovie_RazorPages.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ADONetMovie_RazorPages.Services
 {
@@ -134,9 +132,11 @@ namespace ADONetMovie_RazorPages.Services
             }
         }
 
-        public void LogIn(User user)
+        public User LogIn(User user)
         {
-            string sql = "Select * From Users";
+
+            User User = new User();
+            string sql = $"Select * From Users WHERE Name = {User.UserName} AND  Password = {User.Password}";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -145,11 +145,11 @@ namespace ADONetMovie_RazorPages.Services
                 {
                     while (dataReader.Read())
                     {
-                        User User = new User();
                         User.UserId = Convert.ToInt32(dataReader["Id"]);
                         User.Role = Convert.ToString(dataReader["Role"]);
                     }
                 }
+            return User;
             }
         }
 
