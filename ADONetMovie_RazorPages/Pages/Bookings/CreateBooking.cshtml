@@ -5,8 +5,8 @@
 
 <form>
     <p>
-        PIck Day and Time:
-        <input type="text" asp-for="FilterCriteria" value="@DateTime.Now" readonly class="form_datetime">
+        Pick Day and Time:
+        <input type="text" size="16" asp-for="FilterCriteria"  readonly class="form_datetime">
         <input type="submit" value="Search" />
     </p>
 </form>
@@ -39,14 +39,14 @@
                             @item.Size
                         </td>
                         <td>
-                            @item.Copacity
+                            @item.Capacity
                         </td>
                         <td>
 
                             <form method="post">
                                 <input type="hidden" asp-for="FilterCriteria" value="@Model.FilterCriteria" />
                                 <input type="hidden" name="RoomId" asp-for="@item.RoomId" />
-                                <button class="btn btn-info" asp-page-handler="CreateBooking">Booked </button>
+                                <button class="btn btn-info" asp-page-handler="CreateBooking">Booked</button>
                             </form>
                         </td>
                     </tr>

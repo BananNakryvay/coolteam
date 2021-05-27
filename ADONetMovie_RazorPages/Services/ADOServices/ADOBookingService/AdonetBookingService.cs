@@ -17,7 +17,7 @@ namespace ADONetMovie_RazorPages.Services
         public AdonetBookingService(IConfiguration config)
         {
             configuration = config;
-            connectionString = configuration.GetConnectionString("CinemaContext");
+            connectionString = configuration.GetConnectionString("BookingContext");
         }
         public IEnumerable<Booking> GetBookings()
         {

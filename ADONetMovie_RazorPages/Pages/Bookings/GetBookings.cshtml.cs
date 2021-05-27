@@ -31,11 +31,6 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
         }
         public void OnGet()
         {
-            //if (!String.IsNullOrEmpty(FilterCriteria))
-            //{
-            //    Movies = movieService.GetMovies(FilterCriteria);
-            //}
-            //else
             Bookings = bookingService.GetBookings();
         }
         public async Task<IActionResult> OnPostCancelBookingAsync(Booking id)
