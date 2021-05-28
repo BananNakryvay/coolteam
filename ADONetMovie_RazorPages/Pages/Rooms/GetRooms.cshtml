@@ -61,7 +61,9 @@
                 }
 
             </td>
-            @if (Model.User != null && Model.User.Role == "Admin" )
+            @*the button will appear only if it is admin*@
+
+            @if (Model.User != null && Model.User.Role == "Admin")
             {
                 <td>
                     <form method="post">

@@ -28,13 +28,15 @@ namespace ADONetMovie_RazorPages.Pages.Users
         }
         public IActionResult OnPostAsync(User user)
         {
-          
+          //LogIn Method
             User = userService.LogIn(user);
+            //checker if user exist
             if (string.IsNullOrEmpty(User.UserName))
             {
                 Message = "Wrong Username orr Password";
                 return Page();
             }
+            //Create Session with authorized user
             HttpContext.Session.Set("User", User);
             return RedirectToPage("../Index");
         }

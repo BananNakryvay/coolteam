@@ -50,11 +50,14 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
         }
         public bool GetH(DateTime dateTime)
         {
+            //booking can be made only if the difference between the interval before another booking is more than 2 hours
             double h = DateTime.Parse(FilterCriteria).Subtract(dateTime).TotalHours;
-            return ((h < 2) && (h >= 0));
+            return ((h < 2) && (h > -2));
         }
         public async Task<IActionResult> OnPostCreateBookingAsync(Room id )
         {
+            //the page will not be shown if the user is not an administrator
+
             User user = HttpContext.Session.Get<User>("User");
             bookingService.AddBooking(id, user , DateTime.Parse(FilterCriteria));
             return RedirectToPage("GetBookings");

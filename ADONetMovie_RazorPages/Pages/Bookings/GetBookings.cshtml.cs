@@ -32,11 +32,14 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
         public void OnGet()
         {
             Bookings = bookingService.GetBookings();
+            //get the data of the authorized user
             User = HttpContext.Session.Get<User>("User");
         }
         public async Task<IActionResult> OnPostCancelBookingAsync(Booking id)
         {
+            //Deleting a booking
             bookingService.DeleteBooking(id);
+            //page reload
             return RedirectToPage();
         }
     }

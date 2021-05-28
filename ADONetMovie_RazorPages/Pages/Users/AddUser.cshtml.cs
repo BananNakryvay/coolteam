@@ -21,6 +21,8 @@ namespace ADONetMovie_RazorPages.Pages.Users
         }
         public IActionResult OnGet()
         {
+            //the page will not be shown if the user is not an administrator
+
             User = HttpContext.Session.Get<User>("User");
             if (User != null && User.Role=="Admin")
             {
