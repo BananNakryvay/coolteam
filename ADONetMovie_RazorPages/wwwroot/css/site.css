@@ -12,12 +12,17 @@ a {
   color: #0366d6;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.btn{
+    color: #000;
+    background-color: #fff387;
+    border-color: #fff387;
 }
 
+.btn:hover, .btn:focus, .btn:active, .btn.active, .open > .dropdown-toggle.btn {
+    color: #fff;
+    background-color: #000;
+    border-color: #285e8e; 
+}    
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #1b6ec2;
