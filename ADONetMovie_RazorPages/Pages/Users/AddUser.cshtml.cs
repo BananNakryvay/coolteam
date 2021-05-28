@@ -11,6 +11,7 @@ namespace ADONetMovie_RazorPages.Pages.Users
 {
     public class AddUserModel : PageModel
     {
+        [BindProperty]
         public User User { get; set; }
 
         IUserService userService { get; set; }
