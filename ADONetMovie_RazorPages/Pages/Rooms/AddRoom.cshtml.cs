@@ -12,7 +12,7 @@ namespace ADONetMovie_RazorPages.Pages.Rooms
     public class AddRoomModel : PageModel
     {
         public Room Room{ get; set; }
-
+        public User User { get; set; }
         IRoomService roomService { get; set; }
         public AddRoomModel(IRoomService service)
         {
@@ -27,6 +27,15 @@ namespace ADONetMovie_RazorPages.Pages.Rooms
             roomService.AddRoom(room);
             return RedirectToPage("GetRooms");
         }
-        
+        public IActionResult OnGet()
+        {
+            User = HttpContext.Session.Get<User>("User");
+            if (User != null && User.Role == "Admin")
+            {
+                return Page();
+            }
+            else
+                return RedirectToPage("../Index");
+        }
     }
 }
