@@ -22,7 +22,14 @@ a {
     color: #fff;
     background-color: #000;
     border-color: #285e8e; 
-}    
+}
+
+.page-item.active .page-link {
+    color: #000;
+    background-color: #fff387;
+    border-color: #fff387;
+}
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #1b6ec2;
