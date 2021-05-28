@@ -1,4 +1,6 @@
 # coolteam
+## How to RUN
 
-1 create a DB "BookingDB"
-2 run SQLQuery1.sql
+Create a DB "BookingDB"
+
+Run SQLQuery1.sql
