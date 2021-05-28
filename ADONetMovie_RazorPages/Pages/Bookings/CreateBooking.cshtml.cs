@@ -24,8 +24,16 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
             roomService = service;
             bookingService = bservice;
         }
-        public void OnGet()
+        public User User { get; set; }
+        public IActionResult OnGet()
         {
+            User = HttpContext.Session.Get<User>("User");
+            if (User == null )
+            {
+
+                return RedirectToPage("../Index");
+            }
+        
 
             if (!String.IsNullOrEmpty(FilterCriteria))
             {
@@ -37,6 +45,7 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
             {
                 Messege = "Select Day and Time";
             }
+            return Page();
                 
         }
         public bool GetH(DateTime dateTime)
