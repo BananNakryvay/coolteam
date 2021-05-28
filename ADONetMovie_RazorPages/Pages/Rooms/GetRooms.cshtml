@@ -35,33 +35,42 @@
 
             @foreach (var item in Model.Rooms)
             {
-                <tr>
-                    <td>
-                        @item.RoomId
-                    </td>
-                    <td>
-                        @item.Size
-                    </td>
-                    <td>
-                        @item.Capacity
-                    </td>
-                    <td>
-                        @if (item.Status)
-                        {
-                            <p>
-                                <a asp-page="/Bookings/GetBookings" asp-page-handler="BookingsByRoom" asp-route-id="@item.RoomId"> Occupied for Now  </a>
-                            </p>
+        <tr>
+            <td>
+                @item.RoomId
+            </td>
+            <td>
+                @item.Size
+            </td>
+            <td>
+                @item.Capacity
+            </td>
+            <td>
+                @if (item.Status)
+                {
+                    <p>
+                        <a asp-page="/Bookings/GetBookings" asp-page-handler="BookingsByRoom" asp-route-id="@item.RoomId"> Occupied for Now  </a>
+                    </p>
 
-                        }
-                        else
-                        {
-                            <p>
-                                <a asp-page="/Bookings/GetBookings" asp-page-handler="BookingsByRoom" asp-route-id="@item.RoomId"> Empty </a>
-                            </p>
-                        }
+                }
+                else
+                {
+                    <p>
+                        <a asp-page="/Bookings/GetBookings" asp-page-handler="BookingsByRoom" asp-route-id="@item.RoomId"> Empty </a>
+                    </p>
+                }
 
-                    </td>
-                </tr>
+            </td>
+            @if (Model.User != null && Model.User.Role == "Admin" )
+            {
+                <td>
+                    <form method="post">
+                        <input type="hidden" name="RoomId" asp-for="@item.RoomId" />
+                        <button class="btn btn-danger" asp-page-handler="delRoom">Delete</button>
+                    </form>
+                </td>
+            }
+        </tr>
             }
 </table>
 
