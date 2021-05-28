@@ -14,7 +14,7 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
         [BindProperty(SupportsGet = true)]
         public string FilterCriteria { get; set; }
         public IEnumerable<Booking> Bookings { get; set; }
-
+        public User User { get; set; }
         IBookingService bookingService { get; set; }
         public GetBookingsModel(IBookingService service)
         {
@@ -32,6 +32,7 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
         public void OnGet()
         {
             Bookings = bookingService.GetBookings();
+            User = HttpContext.Session.Get<User>("User");
         }
         public async Task<IActionResult> OnPostCancelBookingAsync(Booking id)
         {

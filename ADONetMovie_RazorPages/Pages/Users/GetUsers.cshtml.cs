@@ -15,7 +15,7 @@ namespace ADONetMovie_RazorPages.Pages.Users
         [BindProperty(SupportsGet = true)]
         public string FilterCriteria { get; set; }
         public IEnumerable<User> Users { get; set; }
-
+        public User User { get; set; }
         IUserService actorService { get; set; }
         public GetUsersModel(IUserService service)
         {
@@ -24,6 +24,7 @@ namespace ADONetMovie_RazorPages.Pages.Users
         public void OnGet()
         {
             Users = actorService.GetUsers();
+            User = HttpContext.Session.Get<User>("User");
         }
 
     }
