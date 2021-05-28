@@ -2,10 +2,13 @@
 @model ADONetMovie_RazorPages.Pages.Rooms.GetRoomsModel
 @{
 }
+@if(Model.User != null && Model.User.Role == "Admin") 
+{
+    <p>
+        <a asp-page="/Rooms/AddRoom">Create New Room</a>
+    </p> 
+}
 
-<p>
-    <a asp-page="/Rooms/AddRoom">Create New Room</a>
-</p>
 
 <h4 style="color:red"> List of Rooms</h4>
 <table id="stable" class="table table-striped table-bordered table-sm">

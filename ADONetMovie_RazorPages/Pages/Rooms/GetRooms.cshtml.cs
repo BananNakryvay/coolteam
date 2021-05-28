@@ -14,7 +14,7 @@ namespace ADONetMovie_RazorPages.Pages.Rooms
         [BindProperty(SupportsGet = true)]
         public string FilterCriteria { get; set; }
         public IEnumerable<Room> Rooms { get; set; }
-
+        public User User { get; set; }
         IRoomService roomService { get; set; }
         IBookingService bookingService { get; set; }
         public GetRoomsModel(IRoomService service, IBookingService bservice)
@@ -24,6 +24,7 @@ namespace ADONetMovie_RazorPages.Pages.Rooms
         }
         public void OnGet()
         {
+            User = HttpContext.Session.Get<User>("User");
             Rooms = roomService.GetRooms();
             Rooms.Where(w => bookingService.GetBookingsByRoomId(w.RoomId).Where(t => GetH(t.Time)).Count() > 0).ToList().ForEach(s => s.Status = true);
         }
@@ -32,5 +33,6 @@ namespace ADONetMovie_RazorPages.Pages.Rooms
             double h = DateTime.Now.Subtract(dateTime).TotalHours;
             return ((h<2)&&(h>=0));
         }
+
     }
 }
