@@ -14,5 +14,8 @@ namespace ADONetMovie_RazorPages.Services
         void DeleteUser(User User);
         void LogOut();
         User LogIn(User user);
+        public void AddUserAsTeacher(User User);
+        public void DeleteUserAsTeacher(User User);
+        public void AddUserAsAdmin(User User);
     }
 }

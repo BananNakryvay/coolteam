@@ -35,25 +35,32 @@
 
             @foreach (var item in Model.Users)
             {
-                <tr>
-                    <td>
-                        @item.UserId
-                    </td>
-                    <td>
-                        @item.UserName
-                    </td>
-                    <td>
-                        @item.Role
-                    </td>
+        <tr>
+            <td>
+                @item.UserId
+            </td>
+            <td>
+                @item.UserName
+            </td>
+            <td>
+                @item.Role
+            </td>
 
 
-                    <td>
-                        <p>
-                            <a asp-page="/Bookings/GetBookings" asp-page-handler="BookingsByUser" asp-route-id="@item.UserId"> User´s Bookings  </a>
-                        </p>
-                    </td>
-                  
-                </tr>
+            <td>
+                <p>
+                    <a asp-page="/Bookings/GetBookings" asp-page-handler="BookingsByUser" asp-route-id="@item.UserId"> User´s Bookings  </a>
+                </p>
+            </td>
+            @if (Model.User != null && Model.User.Role == "Admin")
+            {
+                <td>
+                    <p> <a asp-page="/Users/EditUser" asp-route-id="@item.UserId">Edit User Role</a> </p>
+                </td>
+            }
+                
+
+        </tr>
             }
 </table>
 

@@ -23,7 +23,7 @@ namespace ADONetMovie_RazorPages.Services
         }
         public User GetUserById(int id)
         {
-            return   null;
+            return userService.GetUserById(id);
         }
 
         public void DeleteUser(User User)
@@ -44,6 +44,21 @@ namespace ADONetMovie_RazorPages.Services
         public void AddUser(User User)
         {
             userService.AddUser(User);
+        }
+
+        public void AddUserAsTeacher(User User)
+        {
+            userService.AddUserAsTeacher(User);
+        }
+
+        public void DeleteUserAsTeacher(User User)
+        {
+            userService.DeleteUserAsTeacher(User);
+        }
+
+        public void AddUserAsAdmin(User User)
+        {
+            userService.AddUserAsAdmin(User);
         }
     }
 }

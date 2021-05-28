@@ -27,4 +27,6 @@ CREATE TABLE [dbo].[BookingRoom]
 )
 GO
 INSERT INTO [dbo].[Users] ( [Name], [Role], [Password]) VALUES ( N'Edem', N'Admin', 'kek')
-
+INSERT INTO [dbo].[Users] ([Name], [Role], [Password]) VALUES ( N'Edem', N'Admin', N'kek')
+INSERT INTO [dbo].[Users] ([Name], [Role], [Password]) VALUES ( N'David', N'Teacher', N'ooo')
+INSERT INTO [dbo].[Users] ([Name], [Role], [Password]) VALUES (N'Paulina', N'Student', N'wek')
