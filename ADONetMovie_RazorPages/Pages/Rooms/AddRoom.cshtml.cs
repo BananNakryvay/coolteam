@@ -30,6 +30,7 @@ namespace ADONetMovie_RazorPages.Pages.Rooms
         }
         public IActionResult OnGet()
         {
+            //the page will not open if the user is not an administrator
             User = HttpContext.Session.Get<User>("User");
             if (User != null && User.Role == "Admin")
             {

@@ -11,6 +11,7 @@ namespace ADONetMovie_RazorPages.Pages.Users
     {
         public IActionResult OnGet()
         {
+            //kill session
             HttpContext.Session.Clear();
             return RedirectToPage("../Index");
         }

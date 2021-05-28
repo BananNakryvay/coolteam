@@ -30,8 +30,15 @@ namespace ADONetMovie_RazorPages.Pages.Rooms
         }
         public bool GetH(DateTime dateTime)
         {
+            //booking can be made only if the difference between the interval before another booking is more than 2 hours
             double h = DateTime.Now.Subtract(dateTime).TotalHours;
-            return ((h<2)&&(h>=0));
+            return ((h<2)&&(h>-2));
+        }
+
+        public async Task<IActionResult> OnPostDelRoomAsync(Room id)
+        {
+            roomService.DeleteRoom(id);
+            return RedirectToPage();
         }
 
     }

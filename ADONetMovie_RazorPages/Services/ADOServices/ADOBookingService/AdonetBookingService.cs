@@ -64,6 +64,7 @@ namespace ADONetMovie_RazorPages.Services
                 }
             }
         }
+
         public void DeleteBooking(Booking booking)
         {
             string sql = $"Delete From BookingRoom Where Id=@aid";
