@@ -1,0 +1,51 @@
+﻿@page
+@model ADONetMovie_RazorPages.Pages.Users.EditUserModel
+@{
+    var user = Model.User;
+}
+
+<h1>Edit</h1>
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            User ID
+        </dt>
+        <dd class="col-sm-10">
+            @user.UserId
+        </dd>
+        <dt class="col-sm-2">
+            Name
+        </dt>
+        <dd class="col-sm-10">
+            @user.UserName
+        </dd>
+        <dt class="col-sm-2">
+            Role
+        </dt>
+        <dd class="col-sm-10">
+            @user.Role
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" name="UserId" asp-for="@user.UserId" />
+        <button class="btn btn-danger" asp-page-handler="DeleteUser">Delete User</button>
+        @{ if (user.Role == "Admin")
+            {
+                <button class="btn btn-success" asp-page-handler="MakeTeacher">Make Teacker</button>
+            }
+            else if (user.Role == "Teacher")
+            {
+                <button class="btn btn-primary" asp-page-handler="MakeAdmin">Make Admin</button>
+                <button class="btn btn-info" asp-page-handler="MakeStudent">Make Student</button>
+            }
+            else
+            {
+                <button class="btn btn-primary" asp-page-handler="MakeAdmin">Make Admin</button>
+                <button class="btn btn-success" asp-page-handler="MakeTeacher">Make Teacher</button>
+            }
+
+        }
+    </form>
+</div>
+

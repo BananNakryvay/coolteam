@@ -1,0 +1,18 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome @Model.Messange</h1>
+    @if (Model.Messange == null)
+    {
+        <a class="btn btn-info" asp-page="/Users/LogIn">Log In</a>
+    }
+    else
+    {
+        <a class="btn btn-info" asp-page="/Users/LogOut">Log Out</a>
+    }
+
+</div>

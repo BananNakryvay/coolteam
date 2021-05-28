@@ -1,0 +1,65 @@
+﻿@page
+@model ADONetMovie_RazorPages.Pages.Users.GetUsersModel
+@{ ViewData["Title"] = "GetUsers";
+}
+@if(Model.User != null && Model.User.Role == "Admin")
+{
+<p>
+    <a asp-page="/Users/AddUser">Create New User</a>
+</p>
+}
+
+<h4> List of Users</h4>
+<table id="stable" class="table table-striped table-bordered table-sm">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Role
+            </th>
+            <th>
+                Bookings
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.Users != null)
+
+            @foreach (var item in Model.Users)
+            {
+        <tr>
+            <td>
+                @item.UserId
+            </td>
+            <td>
+                @item.UserName
+            </td>
+            <td>
+                @item.Role
+            </td>
+
+
+            <td>
+                <p>
+                    <a asp-page="/Bookings/GetBookings" asp-page-handler="BookingsByUser" asp-route-id="@item.UserId"> User´s Bookings  </a>
+                </p>
+            </td>
+            @if (Model.User != null && Model.User.Role == "Admin")
+            {
+                <td>
+                    <p> <a asp-page="/Users/EditUser" asp-route-id="@item.UserId">Edit User Role</a> </p>
+                </td>
+            }
+                
+
+        </tr>
+            }
+</table>
+

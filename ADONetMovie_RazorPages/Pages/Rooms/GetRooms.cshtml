@@ -1,0 +1,78 @@
+﻿@page
+@model ADONetMovie_RazorPages.Pages.Rooms.GetRoomsModel
+@{
+}
+@if(Model.User != null && Model.User.Role == "Admin") 
+{
+    <p>
+        <a asp-page="/Rooms/AddRoom">Create New Room</a>
+    </p> 
+}
+
+
+<h4> List of Rooms</h4>
+<table id="stable" class="table table-striped table-bordered table-sm">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Size
+            </th>
+            <th>
+                Capacity
+            </th>
+            <th>
+                Status
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.Rooms != null)
+
+            @foreach (var item in Model.Rooms)
+            {
+        <tr>
+            <td>
+                @item.RoomId
+            </td>
+            <td>
+                @item.Size
+            </td>
+            <td>
+                @item.Capacity
+            </td>
+            <td>
+                @if (item.Status)
+                {
+                    <p>
+                        <a asp-page="/Bookings/GetBookings" asp-page-handler="BookingsByRoom" asp-route-id="@item.RoomId"> Occupied for Now  </a>
+                    </p>
+
+                }
+                else
+                {
+                    <p>
+                        <a asp-page="/Bookings/GetBookings" asp-page-handler="BookingsByRoom" asp-route-id="@item.RoomId"> Empty </a>
+                    </p>
+                }
+
+            </td>
+            @*the button will appear only if it is admin*@
+
+            @if (Model.User != null && Model.User.Role == "Admin")
+            {
+                <td>
+                    <form method="post">
+                        <input type="hidden" name="RoomId" asp-for="@item.RoomId" />
+                        <button class="btn btn-danger" asp-page-handler="delRoom">Delete</button>
+                    </form>
+                </td>
+            }
+        </tr>
+            }
+</table>
+
