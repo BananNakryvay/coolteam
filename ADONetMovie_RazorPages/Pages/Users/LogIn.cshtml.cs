@@ -7,9 +7,12 @@ namespace ADONetMovie_RazorPages.Pages.Users
 {
     public class LogInModel : PageModel
     {
+        [BindProperty]
         public User User { get; set; }
 
         IUserService userService { get; set; }
+        public string Message { get; private set; }
+
         public LogInModel(IUserService service)
         {
             userService = service;
@@ -25,11 +28,13 @@ namespace ADONetMovie_RazorPages.Pages.Users
         }
         public IActionResult OnPostAsync(User user)
         {
-            if (!ModelState.IsValid)
+          
+            User = userService.LogIn(user);
+            if (string.IsNullOrEmpty(User.UserName))
             {
+                Message = "Wrong Username orr Password";
                 return Page();
             }
-            User = userService.LogIn(user);
             HttpContext.Session.Set("User", User);
             return RedirectToPage("../Index");
         }

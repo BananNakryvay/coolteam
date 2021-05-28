@@ -19,13 +19,13 @@ namespace EFCoreMovie_RazorPages.Pages
             _logger = logger;
         }
 
-        public string Messenge { get; private set; }
+        public string Messange { get; private set; }
 
         public void OnGet()
         {
 
-            Messenge =  SessionH.Get<User>(HttpContext.Session, "User")?.UserName ??  null;
-            if (Messenge != null) Messenge = "back, " + Messenge;
+            Messange =  SessionH.Get<User>(HttpContext.Session, "User")?.UserName ??  null;
+            if (Messange != null) Messange = "back, " + Messange;
         }
     }
 }

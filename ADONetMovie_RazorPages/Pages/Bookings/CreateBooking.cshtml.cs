@@ -15,7 +15,7 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
         [BindProperty(SupportsGet = true)]
         public string FilterCriteria { get; set; }
         public IEnumerable<Room> Rooms { get; set; }
-        public string Messege { get; set; }
+        public string Message { get; set; }
 
         IRoomService roomService { get; set; }
         IBookingService bookingService { get; set; }
@@ -43,7 +43,7 @@ namespace ADONetMovie_RazorPages.Pages.Bookings
             }
             else
             {
-                Messege = "Select Day and Time";
+                Message = "Select Day and Time";
             }
             return Page();
                 

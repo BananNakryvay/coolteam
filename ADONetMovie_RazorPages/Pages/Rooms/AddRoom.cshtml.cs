@@ -11,6 +11,7 @@ namespace ADONetMovie_RazorPages.Pages.Rooms
 {
     public class AddRoomModel : PageModel
     {
+        [BindProperty]
         public Room Room{ get; set; }
         public User User { get; set; }
         IRoomService roomService { get; set; }
