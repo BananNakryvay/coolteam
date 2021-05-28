@@ -41,5 +41,11 @@ namespace ADONetMovie_RazorPages.Pages.Rooms
             return RedirectToPage();
         }
 
+        public async Task<IActionResult> OnPostDelRoomAsync(Room id)
+        {
+            roomService.DeleteRoom(id);
+            return RedirectToPage();
+        }
+
     }
 }
