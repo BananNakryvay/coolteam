@@ -146,6 +146,7 @@ namespace ADONetMovie_RazorPages.Services
                     while (dataReader.Read())
                     {
                         User.UserId = Convert.ToInt32(dataReader["Id"]);
+                        User.UserName = Convert.ToString(dataReader["Name"]);
                         User.Role = Convert.ToString(dataReader["Role"]);
                     }
                 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ADONetMovie_RazorPages.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -22,6 +23,9 @@ namespace EFCoreMovie_RazorPages.Pages
 
         public void OnGet()
         {
+
+            Messenge =  SessionH.Get<User>(HttpContext.Session, "User")?.UserName ??  null;
+            if (Messenge != null) Messenge = "back, " + Messenge;
         }
     }
 }

@@ -18,6 +18,15 @@ namespace ADONetMovie_RazorPages.Pages.Users
         {
             userService = service;
         }
+        public IActionResult OnGet()
+        {
+            User = HttpContext.Session.Get<User>("User");
+            if (User != null && User.Role=="Admin")
+            {
+                return Page();
+            }else
+            return RedirectToPage("../Index");
+        }
         public IActionResult OnPostAsync(User user)
         {
             if (!ModelState.IsValid)
