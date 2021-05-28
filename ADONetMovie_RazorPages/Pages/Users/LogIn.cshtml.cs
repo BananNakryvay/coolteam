@@ -19,7 +19,7 @@ namespace ADONetMovie_RazorPages.Pages.Users
             User = HttpContext.Session.Get<User>("User");
             if(User != null)
             {
-               return RedirectToPage("GetUsers");
+                return RedirectToPage("../Index");
             }
             return Page();
         }
@@ -31,7 +31,7 @@ namespace ADONetMovie_RazorPages.Pages.Users
             }
             User = userService.LogIn(user);
             HttpContext.Session.Set("User", User);
-            return RedirectToPage("GetUsers");
+            return RedirectToPage("../Index");
         }
     }
 }

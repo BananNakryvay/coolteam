@@ -2,10 +2,13 @@
 @model ADONetMovie_RazorPages.Pages.Users.GetUsersModel
 @{ ViewData["Title"] = "GetUsers";
 }
-
+@if(Model.User != null && Model.User.Role == "Admin")
+{
 <p>
     <a asp-page="/Users/AddUser">Create New User</a>
 </p>
+}
+
 
 <h4 style="color:red"> List of Users</h4>
 <table id="stable" class="table table-striped table-bordered table-sm">
